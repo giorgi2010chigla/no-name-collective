@@ -55,9 +55,10 @@ function Index() {
             lang === "ka" ? "text-[2.4rem] md:text-[5.6rem] leading-[1.32]" : "text-[3.4rem] md:text-[7.5rem] leading-[1.15]"
           }`}>
             <span className="headline-box">{t("hero_line1")}</span>
-            <br />
-            <span className="headline-box italic">{t("hero_line2")}</span>
-            <span className="blink ml-2">_</span>
+            <span className="headline-box italic">
+              {t("hero_line2")}
+              <span className="blink ml-2">_</span>
+            </span>
           </h1>
           <p className="mt-6 max-w-md font-mono text-xs md:text-sm uppercase tracking-widest opacity-70 reveal-up" style={{ animationDelay: "0.2s" }}>
             {t("hero_sub")}
