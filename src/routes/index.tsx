@@ -24,7 +24,7 @@ function Clock() {
 }
 
 function Index() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -50,11 +50,13 @@ function Index() {
           </div>
         </div>
 
-        <div className="relative z-10 px-6 md:px-10 pb-16 md:pb-24">
-          <h1 className="font-display font-bold text-[12vw] md:text-[9vw] leading-[1.05] tracking-tighter reveal-up">
-            {t("hero_line1")}
+        <div className="relative z-10 px-6 md:px-10 pb-14 md:pb-20">
+          <h1 className={`font-display font-bold tracking-tighter reveal-up ${
+            lang === "ka" ? "text-[2.4rem] md:text-[5.6rem] leading-[1.32]" : "text-[3.4rem] md:text-[7.5rem] leading-[1.15]"
+          }`}>
+            <span className="headline-box">{t("hero_line1")}</span>
             <br />
-            <span className="italic">{t("hero_line2")}</span>
+            <span className="headline-box italic">{t("hero_line2")}</span>
             <span className="blink ml-2">_</span>
           </h1>
           <p className="mt-6 max-w-md font-mono text-xs md:text-sm uppercase tracking-widest opacity-70 reveal-up" style={{ animationDelay: "0.2s" }}>
