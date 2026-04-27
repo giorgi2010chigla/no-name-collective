@@ -54,7 +54,7 @@ function Index() {
           <h1 className="font-display font-bold text-[14vw] md:text-[10vw] leading-[0.85] tracking-tighter reveal-up">
             {t("hero_line1")}
             <br />
-            <span className="italic font-light">{t("hero_line2")}</span>
+            <span className="italic">{t("hero_line2")}</span>
             <span className="blink ml-2">_</span>
           </h1>
           <p className="mt-6 max-w-md font-mono text-xs md:text-sm uppercase tracking-widest opacity-70 reveal-up" style={{ animationDelay: "0.2s" }}>
