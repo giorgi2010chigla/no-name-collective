@@ -70,57 +70,75 @@ function Index() {
       {/* MARQUEE */}
       <Marquee items={[t("slogan_1"), t("slogan_2"), t("slogan_3"), t("slogan_4")]} />
 
+      {/* INFO BAR */}
+      <div className="border-b border-foreground grid grid-cols-2 md:grid-cols-4 font-mono text-[10px] uppercase tracking-widest">
+        {[
+          ["Status", "Available"],
+          ["Edition", "Permanent"],
+          ["Pieces", "003"],
+          ["Origin", "Tbilisi, GE"],
+        ].map(([k, v]) => (
+          <div key={k} className="px-6 md:px-10 py-4 border-r border-foreground last:border-r-0 flex justify-between gap-4">
+            <span className="opacity-50">{k}</span>
+            <span>{v}</span>
+          </div>
+        ))}
+      </div>
+
       {/* MANIFESTO */}
-      <section className="px-6 md:px-10 py-24 md:py-40 grid md:grid-cols-12 gap-8">
-        <div className="md:col-span-3 font-mono text-xs uppercase tracking-widest opacity-50">
-          [01] — {t("manifesto_title")}
+      <section className="grid md:grid-cols-12 border-b border-foreground">
+        <div className="md:col-span-3 px-6 md:px-10 py-8 md:py-12 border-r border-foreground bg-[var(--paper-2)]">
+          <div className="font-mono text-xs uppercase tracking-widest opacity-60">[01]</div>
+          <div className="font-mono text-xs uppercase tracking-widest mt-2">{t("manifesto_title")}</div>
         </div>
-        <div className="md:col-span-9">
-          <p className="font-display text-3xl md:text-6xl leading-[1.05] tracking-tight reveal-up">
+        <div className="md:col-span-9 px-6 md:px-10 py-12 md:py-20">
+          <p className="font-display text-2xl md:text-5xl leading-[1.15] tracking-tight reveal-up">
             {t("manifesto_body")}
           </p>
         </div>
       </section>
 
       {/* SHOP TEASER */}
-      <section className="border-t border-foreground px-6 md:px-10 py-24 md:py-40">
-        <div className="grid md:grid-cols-12 gap-8 items-end mb-12">
-          <div className="md:col-span-3 font-mono text-xs uppercase tracking-widest opacity-50">
-            [02] — {t("shop_title")}
-          </div>
-          <div className="md:col-span-9 flex justify-between items-end">
-            <p className="font-display text-2xl md:text-4xl tracking-tight max-w-xl">{t("shop_sub")}</p>
-            <Link
-              to="/shop"
-              className="font-mono text-xs uppercase tracking-widest border-b border-foreground pb-1 hover:opacity-60 transition"
-            >
-              → {t("nav_shop")}
-            </Link>
-          </div>
+      <section className="grid md:grid-cols-12 border-b border-foreground">
+        <div className="md:col-span-3 px-6 md:px-10 py-8 md:py-12 border-r border-foreground bg-[var(--paper-2)]">
+          <div className="font-mono text-xs uppercase tracking-widest opacity-60">[02]</div>
+          <div className="font-mono text-xs uppercase tracking-widest mt-2">{t("shop_title")}</div>
+        </div>
+        <div className="md:col-span-9 px-6 md:px-10 py-12 md:py-20 flex flex-col md:flex-row justify-between gap-6 md:items-end">
+          <p className="font-display text-2xl md:text-4xl tracking-tight max-w-xl leading-[1.15]">{t("shop_sub")}</p>
+          <Link
+            to="/shop"
+            className="self-start font-mono text-xs uppercase tracking-widest bg-foreground text-background px-5 py-3 hover:bg-[var(--ink-3)] transition-colors"
+          >
+            → {t("nav_shop")}
+          </Link>
         </div>
       </section>
 
       {/* CONTACT */}
-      <section className="border-t border-foreground bg-foreground text-background px-6 md:px-10 py-24 md:py-40">
-        <div className="font-mono text-xs uppercase tracking-widest opacity-50 mb-12">
-          [03] — {t("contact_title")}
-        </div>
-        <div className="grid md:grid-cols-3 gap-12 md:gap-8">
-          {[
-            { label: t("location"), val: t("location_addr") },
-            { label: t("hours"), val: t("hours_val") },
-            { label: t("contact"), val: t("contact_val") },
-          ].map((b) => (
-            <div key={b.label}>
-              <div className="font-mono text-xs uppercase tracking-widest opacity-50 mb-4">— {b.label}</div>
-              <div className="font-display text-2xl md:text-3xl whitespace-pre-line leading-tight">{b.val}</div>
-            </div>
-          ))}
+      <section className="bg-foreground text-background">
+        <div className="grid md:grid-cols-12 border-b border-background/20">
+          <div className="md:col-span-3 px-6 md:px-10 py-8 md:py-12 border-r border-background/20 bg-[var(--ink-2)]">
+            <div className="font-mono text-xs uppercase tracking-widest opacity-60">[03]</div>
+            <div className="font-mono text-xs uppercase tracking-widest mt-2">{t("contact_title")}</div>
+          </div>
+          <div className="md:col-span-9 grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-background/20">
+            {[
+              { label: t("location"), val: t("location_addr") },
+              { label: t("hours"), val: t("hours_val") },
+              { label: t("contact"), val: t("contact_val") },
+            ].map((b) => (
+              <div key={b.label} className="px-6 md:px-8 py-10">
+                <div className="font-mono text-[10px] uppercase tracking-widest opacity-60 mb-4">— {b.label}</div>
+                <div className="font-display text-xl md:text-2xl whitespace-pre-line leading-[1.25]">{b.val}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-24 md:mt-40 flex flex-col md:flex-row justify-between gap-6 font-mono text-[10px] uppercase tracking-widest opacity-60">
-          <div>{t("footer")}</div>
-          <div>41.7151° N / 44.8271° E</div>
+        <div className="px-6 md:px-10 py-6 flex flex-col md:flex-row justify-between gap-3 font-mono text-[10px] uppercase tracking-widest">
+          <div className="opacity-70">{t("footer")}</div>
+          <div className="opacity-70">41.7151° N / 44.8271° E</div>
         </div>
       </section>
     </main>
