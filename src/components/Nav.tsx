@@ -13,6 +13,19 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Hash-based deep link support (for static hosts like GitHub Pages)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const h = window.location.hash;
+    if (h.startsWith("#/")) {
+      const target = h.slice(1);
+      if (target !== loc.pathname) {
+        window.history.replaceState(null, "", target);
+        window.location.reload();
+      }
+    }
+  }, []);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
