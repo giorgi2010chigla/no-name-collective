@@ -163,12 +163,16 @@
   .font-display em, .font-display i { font-family: "Archivo Black", "Noto Sans Georgian", sans-serif; font-weight: 900; font-style: italic; }
 
   .headline-box {
+    display: block;
+    width: 100%;
     background: var(--paper-2);
     border: 1px solid var(--foreground);
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    padding: 0.04em 0.13em 0.12em;
-    line-height: 1.18;
+    padding: 0.35em 0.25em 0.45em;
+    line-height: 1.25;
+    overflow: visible;
+  }
+  .headline-box + .headline-box {
+    border-top: none;
   }
 
   .marquee {

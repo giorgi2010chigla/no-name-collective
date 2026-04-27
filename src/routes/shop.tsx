@@ -31,7 +31,7 @@ function Shop() {
     <main className="min-h-screen bg-background text-foreground pt-24">
       <header className="px-6 md:px-10 py-12 md:py-20 border-b border-foreground">
         <div className="font-mono text-xs uppercase tracking-widest opacity-50 mb-4">— {t("shop_title")}</div>
-        <h1 className={`font-display font-bold tracking-tighter leading-[1.18] ${lang === "ka" ? "text-4xl md:text-7xl" : "text-5xl md:text-8xl"}`}>
+        <h1 className={`font-display font-bold tracking-tighter leading-[1.25] ${lang === "ka" ? "text-4xl md:text-7xl" : "text-5xl md:text-8xl"}`}>
           <span className="headline-box">{t("nav_shop")}.</span>
         </h1>
         <p className="mt-4 font-mono text-xs uppercase tracking-widest opacity-60 max-w-md">{t("shop_sub")}</p>
