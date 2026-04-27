@@ -51,7 +51,7 @@ function Index() {
         </div>
 
         <div className="relative z-10 px-6 md:px-10 pb-16 md:pb-24">
-          <h1 className="font-display font-bold text-[14vw] md:text-[10vw] leading-[0.85] tracking-tighter reveal-up">
+          <h1 className="font-display font-bold text-[12vw] md:text-[9vw] leading-[1.05] tracking-tighter reveal-up">
             {t("hero_line1")}
             <br />
             <span className="italic">{t("hero_line2")}</span>
