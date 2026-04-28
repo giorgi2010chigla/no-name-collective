@@ -49,6 +49,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="grain">
+        <div id="root"></div> {/* <-- React will mount here */}
         {children}
         <Scripts />
       </body>
