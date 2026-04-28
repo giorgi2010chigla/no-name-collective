@@ -1,27 +1,14 @@
+"use client";
+
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 import { Marquee } from "@/components/Marquee";
+import { Clock } from "@/components/Clock";
 import heroImg from "@/assets/hero.jpg";
-import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
-function Clock() {
-  const [time, setTime] = useState("");
-  useEffect(() => {
-    const upd = () => {
-      const d = new Date();
-      const opts: Intl.DateTimeFormatOptions = { hour: "2-digit", minute: "2-digit", second: "2-digit", timeZone: "Asia/Tbilisi", hour12: false };
-      setTime(new Intl.DateTimeFormat("en-GB", opts).format(d));
-    };
-    upd();
-    const id = setInterval(upd, 1000);
-    return () => clearInterval(id);
-  }, []);
-  return <span className="font-mono">{time || "--:--:--"}</span>;
-}
 
 function Index() {
   const { lang, t } = useI18n();
@@ -38,7 +25,6 @@ function Index() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
-
         <div className="relative z-10 flex justify-between items-start px-6 md:px-10 pt-28 font-mono text-[10px] md:text-xs uppercase tracking-widest">
           <div>
             <div className="opacity-60">N° 001</div>
