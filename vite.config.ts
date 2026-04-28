@@ -2,9 +2,9 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   vite: {
-    base: "/no-name-collective/", // Matches your repo name exactly
+    base: "/no-name-collective/",
     build: {
-      outDir: "dist", // Output directly to dist (not dist/client)
+      outDir: "dist",
       rollupOptions: {
         output: {
           manualChunks: undefined,
