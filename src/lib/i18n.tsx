@@ -29,6 +29,11 @@ const dict = {
     footer: "© NO NAME — All rights reserved",
     view: "View",
     price: "Price",
+    cart_title: "Cart",
+    empty_cart: "Your cart is empty.",
+    add_to_cart: "Add to cart",
+    remove: "Remove",
+    checkout: "Checkout",
   },
   ka: {
     nav_home: "მთავარი",
@@ -56,6 +61,11 @@ const dict = {
     footer: "© NO NAME — ყველა უფლება დაცულია",
     view: "ნახე",
     price: "ფასი",
+    cart_title: "კალათა",
+    empty_cart: "კალათა ცარიელია.",
+    add_to_cart: "კალათაში დამატება",
+    remove: "წაშლა",
+    checkout: "გადახდა",
   },
 };
 
