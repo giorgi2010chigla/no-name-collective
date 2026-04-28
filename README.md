@@ -1,55 +1,17 @@
 # NO NAME - Concept Store
 
-## Deployment to GitHub Pages
+## Automatic Deployment
+This project deploys automatically to GitHub Pages via GitHub Actions when you push to the `main` branch.
 
-### Build for GitHub Pages
+## GitHub Pages Settings
+1. Go to your repository **Settings > Pages**
+2. Set **Source** to **GitHub Actions**
+3. No further configuration needed - the workflow handles everything.
 
-1. Install dependencies:
-```bash
-bun install
-```
+## Live Site
+Visit: [https://giorgi2010chigla.github.io/no-name-collective/](https://giorgi2010chigla.github.io/no-name-collective/)
 
-2. Build the project:
-```bash
-bun run build:github
-```
-
-### Upload to GitHub Pages
-
-1. **Important**: Upload the entire `dist/client` folder to your GitHub repository
-2. **Do not** upload the `dist` folder itself, only the `dist/client` contents
-3. Make sure to upload to the **root** of your repository, not in a `/docs` folder
-
-### Folder Structure
-
-After building, your `dist/client` folder should contain:
-
-```
-dist/client/
-├── index.html
-├── 404.html
-├── assets/
-│   ├── main-*.js
-│   └── styles-*.css
-├── shop/
-│   └── index.html
-├── cart/
-│   └── index.html
-└── checkout/
-    └── index.html
-```
-
-### GitHub Pages Settings
-
-1. Go to your repository Settings
-2. Navigate to Pages
-3. Source: Deploy from a branch
-4. Branch: main (or your default branch)
-5. Folder: / (root)
-
-### Troubleshooting
-
-If you still get 404 errors:
-1. Make sure you uploaded `dist/client` folder, not just `dist`
-2. Check that all HTML files are in the correct locations
-3. Ensure GitHub Pages is enabled for the correct repository
+## How It Works
+- Uses hash-based routing (`createHashHistory`) to work with static GitHub Pages hosting
+- Build outputs to `dist` folder with `index.html` at the root
+- All routes are handled client-side, so no server-side configuration is required
