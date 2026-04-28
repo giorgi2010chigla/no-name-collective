@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>NO NAME</title>
+    <script>
+      var path = window.location.pathname.replace(/^\/+|\/+$/g, "");
+      var repo = path ? path.split("/")[0] : "";
+      var target = repo ? "/" + repo + "/#/" : "/#/";
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>Redirecting...</body>
+</html>
