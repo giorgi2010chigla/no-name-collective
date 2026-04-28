@@ -15,16 +15,11 @@ export default defineConfig({
       basepath: "/",
     },
     prerender: {
-      enabled: true,
-      autoStaticPathsDiscovery: false,
+      enabled: false,
     },
-    pages: [
-      { path: "/", prerender: { outputPath: "/" } },
-    ],
     spa: {
       enabled: true,
       maskPath: "/",
-      prerender: { outputPath: "/404" },
     },
     sitemap: {
       enabled: false,
