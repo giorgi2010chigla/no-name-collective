@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>NO NAME</title>
+    <script>
+      var parts = window.location.pathname.split("/").filter(Boolean);
+      var repo = parts.shift() || "";
+      var rest = parts.join("/");
+      var target = repo ? "/" + repo + "/#/" + rest : "/#/" + rest;
+      if (window.location.search) target += window.location.search;
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>Redirecting...</body>
+</html>

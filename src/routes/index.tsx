@@ -54,8 +54,8 @@ function Index() {
           <h1 className={`font-display font-bold tracking-tighter reveal-up ${
             lang === "ka" ? "text-[2.4rem] md:text-[5.6rem] leading-[1.32]" : "text-[3.4rem] md:text-[7.5rem] leading-[1.15]"
           }`}>
-            <span className="headline-box">{t("hero_line1")}</span>
-            <span className="headline-box italic">
+            <span className="block drop-shadow-[0_2px_18px_var(--background)]">{t("hero_line1")}</span>
+            <span className="block italic drop-shadow-[0_2px_18px_var(--background)]">
               {t("hero_line2")}
               <span className="blink ml-2">_</span>
             </span>

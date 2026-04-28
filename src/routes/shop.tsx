@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 import { useState } from "react";
-import p1 from "@/assets/product-1.jpg";
-import p2 from "@/assets/product-2.jpg";
-import p3 from "@/assets/product-3.jpg";
+import { products, formatEuro } from "@/lib/products";
+import { useCart } from "@/lib/cart";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -17,14 +16,9 @@ export const Route = createFileRoute("/shop")({
   component: Shop,
 });
 
-const products = [
-  { id: "001", name: "Hooded Object", img: p1, price: "₾ 480", material: "Heavy cotton fleece, 480gsm" },
-  { id: "002", name: "Frayed Tee", img: p2, price: "₾ 220", material: "Raw-cut cotton jersey" },
-  { id: "003", name: "Wide Trouser", img: p3, price: "₾ 560", material: "Wool gabardine, drape cut" },
-];
-
 function Shop() {
   const { lang, t } = useI18n();
+  const { addItem } = useCart();
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
@@ -59,8 +53,8 @@ function Shop() {
                   width={832}
                   height={1216}
                   loading="lazy"
-                  className={`w-full h-full object-cover transition-all duration-700 ease-out ${
-                    isH ? "scale-105 grayscale-0" : "scale-100"
+                  className={`w-full h-full object-cover transition-transform duration-700 ease-out ${
+                    isH ? "scale-100" : "scale-110"
                   }`}
                 />
                 <div className="absolute inset-0 bg-background/0 group-hover:bg-background/0 transition" />
@@ -68,7 +62,7 @@ function Shop() {
 
               <div className="absolute top-0 left-0 right-0 p-5 md:p-6 flex justify-between items-start font-mono text-[10px] uppercase tracking-widest text-background mix-blend-difference">
                 <span>N° {p.id}</span>
-                <span>{p.price}</span>
+                <span>{formatEuro(p.price)}</span>
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 p-5 md:p-8 text-background mix-blend-difference">
@@ -83,8 +77,14 @@ function Shop() {
                   <div className="font-mono text-[10px] uppercase tracking-widest opacity-80 mb-3">
                     {p.material}
                   </div>
-                  <button className="font-mono text-[10px] uppercase tracking-widest border border-background px-4 py-2 hover:bg-background hover:text-foreground transition-colors">
-                    {t("view")} →
+                  <button
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      addItem(p);
+                    }}
+                    className="font-mono text-[10px] uppercase tracking-widest border border-background px-4 py-2 hover:bg-background hover:text-foreground transition-colors"
+                  >
+                    {t("add_to_cart")} →
                   </button>
                 </div>
               </div>

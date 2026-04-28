@@ -2,6 +2,7 @@ import { Outlet, createRootRoute, HeadContent, Scripts, Link } from "@tanstack/r
 import appCss from "../styles.css?url";
 import { I18nProvider } from "@/lib/i18n";
 import { Nav } from "@/components/Nav";
+import { CartProvider } from "@/lib/cart";
 
 function NotFoundComponent() {
   return (
@@ -58,8 +59,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <I18nProvider>
-      <Nav />
-      <Outlet />
+      <CartProvider>
+        <Nav />
+        <Outlet />
+      </CartProvider>
     </I18nProvider>
   );
 }

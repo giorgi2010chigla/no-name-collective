@@ -1,9 +1,11 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 import { useEffect, useState } from "react";
+import { useCart } from "@/lib/cart";
 
 export function Nav() {
   const { t, lang, setLang } = useI18n();
+  const { totalItems } = useCart();
   const loc = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
@@ -11,19 +13,6 @@ export function Nav() {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Hash-based deep link support (for static hosts like GitHub Pages)
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const h = window.location.hash;
-    if (h.startsWith("#/")) {
-      const target = h.slice(1);
-      if (target !== loc.pathname) {
-        window.history.replaceState(null, "", target);
-        window.location.reload();
-      }
-    }
   }, []);
 
   return (
@@ -57,6 +46,18 @@ export function Nav() {
           >
             {t("nav_lang")}
           </button>
+          <Link
+            to="/cart"
+            className={`relative inline-flex h-8 w-8 items-center justify-center border border-foreground hover:bg-foreground hover:text-background transition-colors duration-200 ${loc.pathname === "/cart" ? "bg-foreground text-background" : ""}`}
+            aria-label="Shopping cart"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.78a2 2 0 0 0 1.95-1.57L21 7H5.12" />
+            </svg>
+            {totalItems > 0 && <span className="absolute -right-2 -top-2 min-w-4 px-1 bg-foreground text-background text-[9px] leading-4 text-center">{totalItems}</span>}
+          </Link>
         </nav>
       </div>
     </header>
